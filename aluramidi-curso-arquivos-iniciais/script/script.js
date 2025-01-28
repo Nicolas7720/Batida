@@ -25,5 +25,16 @@ listaDeTeclas.forEach((tecla) => {
     tecla.addEventListener("click", () => {
         const nomeTecla = tecla.textContent.trim().toLowerCase()
         document.querySelector(`#som_tecla_${nomeTecla}`).play()
+        tecla.addEventListener("keydown", (e) => {
+            if (e.code === "Enter" || e.code === "Space") {
+                tecla.classList.add("ativa")
+            }
+
+        })
+        tecla.addEventListener("keyup", (e) => {
+            if (e.code === "Enter" || e.code === "Space") {
+                tecla.classList.remove('ativa')
+            }
+        })
     })
 })
